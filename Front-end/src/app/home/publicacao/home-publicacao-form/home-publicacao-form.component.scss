@@ -1,0 +1,25 @@
+h1{
+    display: inline-block;
+}
+.telefones{
+    line-height: .4;
+}
+.container{
+    margin: 0 10%;
+}
+
+.disponivel {
+
+    background-color: green; /* Cor de fundo */
+    display: inline-block; /* Faz com que o fundo se ajuste ao tamanho do texto */
+    padding: 0.5rem; /* Ajuste o preenchimento conforme necessário */
+  }
+  
+  .indisponivel {
+    background-color: red; /* Cor de fundo */
+    display: inline-block; /* Faz com que o fundo se ajuste ao tamanho do texto */
+    padding: 0.5rem; /* Ajuste o preenchimento conforme necessário */
+  }
+  .disponibilidade{
+    display: inline-block;
+  }

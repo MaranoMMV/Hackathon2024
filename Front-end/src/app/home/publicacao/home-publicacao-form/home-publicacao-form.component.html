@@ -1,0 +1,23 @@
+@for (item of publicacoes; track $index) {
+    <div class="container">
+        <div class="pessoa">
+            <h1><b>{{ item.usuario.nome}}</b></h1> - {{ item.usuario.email}} - <p class="disponibilidade"[ngStyle]="{
+                'displlay': 'inline-block',
+                'background-color': item.status === 1 ? 'lightgreen' : 'lightcoral',
+                'color': 'black',
+                'padding': '5px',
+                'margin-left': '7px'
+            }">
+                {{ item.status === 1 ? 'Disponível' : 'Doado' }}
+            </p>
+            @for (telefones of item.usuario.telefone; track $index) {
+                <p class="telefones">tel: {{telefones}}</p>
+            }
+        </div>
+        <div class="publicacao">
+
+            <p>{{ item.animal }}</p>
+            <p>{{ item.texto }}</p>
+        </div>
+    </div>
+}

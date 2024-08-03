@@ -1,0 +1,54 @@
+.carousel {
+    width: 100vw; /* Define a largura como 100% da viewport */
+    height: 89vh; /* Define a altura como 100% da viewport */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse o carrossel */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    max-width: 100%;
+    position:  relative;
+  }
+  
+  .slide {
+    width: 100%; /* Define a largura da imagem como 100% do slide */
+    height: 89vh; /* Define a altura da imagem como 100% do slide */
+    object-fit: cover; /* Faz a imagem cobrir toda a área do slide */
+
+    max-width: 100%;
+  }
+
+  .slide img {
+    width: 100%; /* Define a largura da imagem como 100% do slide */
+    height:89vh; /* Define a altura da imagem como 100% do slide */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    object-fit: cover; /* Faz a imagem cobrir toda a área do slide */
+    max-width: 100%;
+  }
+
+
+  .mensagem {
+    position: absolute; /* Posicionamento absoluto */
+    top: 90px; /* Ajuste conforme necessário */
+    left: 50px; /* Distância da esquerda */
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 300px;
+    box-shadow: 0px 0px 30px 30px rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Definir um z-index alto para ficar por cima */
+  }
+.mensagem h1, .mensagem p {
+    margin: 3px;
+    padding: 5px;
+  }
+
+  @media(max-width: 768px){
+    .mensagem{
+
+      display: none;
+    }
+  }
