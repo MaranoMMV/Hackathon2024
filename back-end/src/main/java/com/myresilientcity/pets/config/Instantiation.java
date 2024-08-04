@@ -29,12 +29,12 @@ public class Instantiation implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		//Usuarios CNPJ e CPF
-		Usuario usuarioCNPJ = new UsuarioCNPJ(null, "Grupo LTDA", "grupo@gmail.com", "123", TipoUsuario.DOADOR_CNPJ, "21736182376", "Razao e emocao", "rua das ruas");
+		Usuario usuarioCNPJ = new UsuarioCNPJ(null, "Grupo LTDA", "grupo@gmail.com", "$2a$10$TcUEgzjxPKmbgCjZqZrsKOwaQw6aOqKs8G5ALghAdwXjIWY2V4JxC", TipoUsuario.DOADOR_CNPJ, "21736182376", "Razao e emocao", "rua das ruas");
 		usuarioCNPJ.getTelefone().addAll(Arrays.asList("1231231123", "123123123"));
 		this.usuarioRepository.save(usuarioCNPJ);
 		
-		 Usuario usuarioCPF1 = new UsuarioCPF(null, "Matheus", "Matheusmmv14@gmail.com", "123", TipoUsuario.DOADOR_CPF, true);
-         Usuario usuarioCPF2 = new UsuarioCPF(null, "Geovana", "geovana@gmail.com", "123", TipoUsuario.DOADOR_CPF, false);
+		 Usuario usuarioCPF1 = new UsuarioCPF(null, "Matheus", "Matheusmmv14@gmail.com", "$2a$10$TcUEgzjxPKmbgCjZqZrsKOwaQw6aOqKs8G5ALghAdwXjIWY2V4JxC", TipoUsuario.DOADOR_CPF, true);
+         Usuario usuarioCPF2 = new UsuarioCPF(null, "Geovana", "geovana@gmail.com", "$2a$10$TcUEgzjxPKmbgCjZqZrsKOwaQw6aOqKs8G5ALghAdwXjIWY2V4JxC", TipoUsuario.DOADOR_CPF, false);
  			usuarioCPF1.getTelefone().addAll(Arrays.asList("34217641623", "425629834624"));
          this.usuarioRepository.saveAll(Arrays.asList(usuarioCPF1, usuarioCPF2));
          
