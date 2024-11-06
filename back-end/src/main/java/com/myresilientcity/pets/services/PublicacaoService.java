@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.myresilientcity.pets.domain.entity.Publicacao;
+import com.myresilientcity.pets.domain.entity.Usuario;
 import com.myresilientcity.pets.domain.entity.dto.PublicacaoDTO;
 import com.myresilientcity.pets.domain.entity.enums.StatusAdocao;
 import com.myresilientcity.pets.domain.repository.ImagemPostagemRepository;
 import com.myresilientcity.pets.domain.repository.PublicacaoRepository;
+import com.myresilientcity.pets.domain.repository.UsuarioRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +26,7 @@ public class PublicacaoService {
 	@Autowired
 	private final PublicacaoRepository publicacaoRepository;
 	private final ImagemPostagemRepository imagemPostagemRepository;
+	private final UsuarioRepository usuarioRepository;
 	
 	
 	public Publicacao salvarPublicacao(PublicacaoDTO publicacaoDTO) {
@@ -45,7 +48,7 @@ public class PublicacaoService {
 	}
 	
 	public List<Publicacao> listagemDePublicacao(){
-		 List<Publicacao> publicacoes = publicacaoRepository.findAll();
+		 List<Publicacao> publicacoes = publicacaoRepository.findByStatus(2);
 	        return publicacoes.stream().map( publicacao -> {
 	        	publicacao.getUsuario().setPassword(null);
 	        	publicacao.getUsuario().setPublicacoes(null);
@@ -64,6 +67,12 @@ public class PublicacaoService {
 			publicacao.setTexto(publicacaoAtualizada.getTexto());
 			return this.publicacaoRepository.save(publicacao);
 		}).orElseThrow( () ->  new ResponseStatusException(HttpStatus.NOT_FOUND, "Publicacao não encontrada!"));
+	}
+	
+	public List<Publicacao> ListarPublicacaoPorPessoa(Long id) {
+		Usuario usuario = this.usuarioRepository.findById(id).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado para a busca de publicacoes"));
+		System.out.println(usuario.toString());
+		return this.publicacaoRepository.findByUsuario(usuario);
 	}
 
 }

@@ -6,6 +6,10 @@ import { HomeOngsComponent } from './home/home-ongs/home-ongs.component';
 import { LoginComponent } from './login/pages/login/login.component';
 import { AuthGuard } from './auth-guard.service';
 import { SistemaComponent } from './sistema/sistema.component';
+import { SistemaMenuComponent } from './sistema/template/sistema-menu/sistema-menu.component';
+import path from 'path';
+import { SistemaPublicacaoComponent } from './sistema/publicacao/sistema-publicacao/sistema-publicacao.component';
+import { SistemaPublicacaoFormComponent } from './sistema/publicacao/sistema-publicacao-form/sistema-publicacao-form.component';
 
 export const routes: Routes = [
     {
@@ -19,10 +23,16 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
         path: 'sistema',
-        component: SistemaComponent,
+        component: SistemaMenuComponent,
         canActivate: [AuthGuard],
         children: [
-            
+            {
+                path: '', component: SistemaComponent,
+
+            },
+            { path: 'minhaspublicacoes', component: SistemaPublicacaoComponent },
+            { path: 'minhaspublicacoes/form', component: SistemaPublicacaoFormComponent},
+            { path: 'minhaspublicacoes/form/:id', component: SistemaPublicacaoFormComponent}
         ]
     }
 ];

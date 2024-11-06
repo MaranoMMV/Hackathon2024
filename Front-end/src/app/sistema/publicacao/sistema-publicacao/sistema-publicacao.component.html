@@ -1,3 +1,4 @@
+<button mat-raised-button routerLink="/sistema/minhaspublicacoes/form"><mat-icon>add</mat-icon>Adicionar</button>
 @for (item of publicacoes; track $index) {
     <div class="container">
         <div class="pessoa">
@@ -8,7 +9,7 @@
                 'padding': '5px',
                 'margin-left': '7px'
             }">
-                {{ item.status === 1 ? 'Doado' : 'Disponível' }}
+                {{ item.status === 1 ?  'Doado' : 'Disponível' }}
             </p>
             @for (telefones of item.usuario.telefone; track $index) {
                 <p class="telefones">tel: {{telefones}}</p>

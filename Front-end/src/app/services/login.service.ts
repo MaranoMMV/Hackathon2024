@@ -21,4 +21,9 @@ export class LoginService {
       })
     );
   }
+
+  getUserId(): number | null{
+    const id = sessionStorage.getItem("user-id");
+    return id ? Number(id) : null;
+  }
 }

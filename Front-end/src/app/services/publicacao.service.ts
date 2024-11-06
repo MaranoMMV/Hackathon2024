@@ -12,5 +12,8 @@ export class PublicacaoService {
 
   list(): Observable<Publicacao[]> {
   return this.http.get<Publicacao[]>(`${this.url}`); 
-}
+  }
+  listagemPublicacaoPorPessoa(id: number): Observable<Publicacao[]>{
+    return this.http.get<Publicacao[]>(`${this.url}/private/publicacaopessoa/${id}`)
+  }
 }
